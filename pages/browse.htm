@@ -11,11 +11,26 @@ productPage = "product"
 
 [shopCategories]
 categoryPage = "browse"
-listClass = "nav nav-tabs nav-stacked"
+showItemCount = "true"
+itemCountClass = "badge"
+listClass = "list-group"
+listItemClass = "list-group-item"
 ==
 <div class="row">
     <div class="col-md-3">
-        {% component 'shopCategories' %}
+        <div class="{{ listClass }}">
+            {% for cat in categories %}
+            <a class="{{ listItemClass }}{% if cat.id == category.id %} active{% endif %}" href="{{ cat.url }}">
+                {{ cat.title }}
+
+                {% if showItemCount %}
+                <span class="{{ itemCountClass }}">
+                    {{ cat.products.count }}
+                </span>
+                {% endif %}
+            </a>
+            {% endfor %}
+        </div>
     </div>
     <div class="col-md-9">
         {% component 'shopProducts' %}
