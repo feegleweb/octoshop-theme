@@ -1,0 +1,23 @@
+title = "Browse Products"
+url = "/browse/:slug?"
+layout = "default"
+
+[shopProducts]
+categoryFilter = ":slug"
+productPage = "product"
+
+[shopBasket]
+productPage = "product"
+
+[shopCategories]
+categoryPage = "browse"
+listClass = "nav nav-tabs nav-stacked"
+==
+<div class="row">
+    <div class="col-md-3">
+        {% component 'shopCategories' %}
+    </div>
+    <div class="col-md-9">
+        {% component 'shopProducts' %}
+    </div>
+</div>

@@ -1,0 +1,40 @@
+title = "Payment"
+url = "/payment"
+layout = "default"
+
+[shopBasket]
+productPage = "product"
+==
+<?php
+
+use Dshoreman\Shop\Models\Settings;
+
+function onStart()
+{
+    $this['key'] = Settings::get('stripe_active_keys') == 'live'
+                 ? Settings::get('stripe_live_pub_key')
+                 : Settings::get('stripe_test_pub_key');
+}
+?>
+==
+<h2>Checkout</h2>
+<p class="lead">
+	Please double-check everything on this page to make sure the information
+	is correct. When you are absolutely sure it is, go ahead and <em>Pay with Card</em> to finalise your order.
+</p>
+
+{% component 'shopBasket' %}
+
+<div class="row pull-right">
+    <form action="/shop/order/payment/process" method="post">
+        <script class="stripe-button"
+                src="https://checkout.stripe.com/checkout.js"
+                data-key="{{ key }}"
+                data-name="Octoshop Demo"
+                data-amount="{{ basketTotal * 100}}"
+                data-currency="gbp"
+                data-billing-address="true"
+                data-shipping-address="true"
+        ></script>
+    </form>
+</div>
