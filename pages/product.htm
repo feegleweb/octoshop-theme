@@ -2,7 +2,23 @@ title = "Product"
 url = "/product/:slug"
 layout = "default"
 
+[shopBasket]
+
 [shopProduct]
 idParam = ":slug"
+addButtonText = "Add to Basket"
+imageClass = "img-rounded"
+imageContainerClass = "col-md-6"
+productContainerClass = "row"
+detailContainerClass = "col-md-6"
+priceClass = "text-primary lead"
+priceContainerClass = "col-md-3"
+qtyContainerClass = "col-md-4"
+qtyLabelClass = "sr-only"
+qtyWrapperClass = "input-group"
+qtyClass = "form-control"
+addButtonClass = "btn btn-primary btn-block"
+addButtonContainerClass = "col-md-7"
+
 ==
 {% component 'shopProduct' %}
