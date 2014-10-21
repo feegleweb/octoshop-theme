@@ -3,21 +3,19 @@ url = "/browse/:slug?"
 layout = "default"
 
 [shopProducts]
-categoryFilter = ":slug"
-productPage = "product"
-basketContainer = "#basket"
-rowClass = "row"
+idParam = ":slug"
+basketContainer = "#minibasket"
 addButtonText = "Add to Basket"
+rowClass = "row"
 imageClass = "img-rounded"
-productColumnClass = "col-xs-6 col-sm-4 col-lg-3"
 productContainerClass = "thumbnail"
 detailContainerClass = "caption"
 priceContainerClass = "col-xs-4"
 addButtonClass = "btn btn-sm btn-primary pull-right"
 addButtonContainerClass = "col-xs-8"
-
-[shopBasket]
+categoryFilter = ":slug"
 productPage = "product"
+productColumnClass = "col-xs-6 col-sm-4 col-lg-3"
 
 [shopCategories]
 categoryPage = "browse"

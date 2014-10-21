@@ -5,3 +5,7 @@ body {
 .navbar-brand img {
     margin-top: -5px;
 }
+
+#minibasket .container {
+    width: 470px;
+}
