@@ -1,0 +1,21 @@
+<div class="btn-group">
+  <button class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown">
+    <i class="glyphicon glyphicon-shopping-cart glyphicon-large"></i>
+    &nbsp;{{ basketCount }}
+    {% if basketCount == 1 %} item {% else %} items {% endif %}&mdash; &pound;{{ basketTotal }}
+    &nbsp;<span class="caret"></span>
+  </button>
+  <div class="dropdown-menu" role="menu">
+    <div class="container">
+      {% component "miniBasket" %}
+      <div class="row">
+        <div class="col-xs-6">
+          <a href="{{ 'basket'|page }}" class="btn  btn-block btn-default pull-left">View Basket</a>
+        </div>
+        <div class="col-xs-6">
+          <a href="{{ 'payment'|page }}" class="btn  btn-block btn-primary pull-right">Checkout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

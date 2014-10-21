@@ -19,6 +19,11 @@
         <li class="{% if this.page.id == 'basket' %}active{% endif %}"><a href="{{ 'basket'|page }}">Basket</a></li>
         <li class="{% if this.page.id == 'checkout' %}active{% endif %}"><a href="{{ 'checkout'|page }}">Checkout</a></li>
       </ul>
+      <ul class="nav navbar-nav pull-right">
+        <li class="active navbar-right" id="minibasket">
+          {% partial "minibasket" %}
+        </li>
+      </ul>
     </div><!--/.nav-collapse -->
   </div>
 </div>

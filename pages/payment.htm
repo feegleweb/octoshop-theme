@@ -2,8 +2,10 @@ title = "Payment"
 url = "/payment"
 layout = "default"
 
-[shopBasket]
+[shopBasket mainBasket]
+paymentPage = "checkout/payment"
 productPage = "product"
+tableClass = "table"
 ==
 <?php
 
@@ -23,7 +25,7 @@ function onStart()
 	is correct. When you are absolutely sure it is, go ahead and <em>Pay with Card</em> to finalise your order.
 </p>
 
-{% component 'shopBasket' %}
+{% component 'mainBasket' %}
 
 <div class="row pull-right">
     <form action="/shop/order/payment/process" method="post">
