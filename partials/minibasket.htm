@@ -1,8 +1,9 @@
 <div class="btn-group">
   <button class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown">
     <i class="glyphicon glyphicon-shopping-cart glyphicon-large"></i>
-    &nbsp;{{ basketCount }}
-    {% if basketCount == 1 %} item {% else %} items {% endif %}&mdash; &pound;{{ basketTotal }}
+    &nbsp;<span class="ocshop-count">{{ basketCount }}</span>
+    {% if basketCount == 1 %} item {% else %} items {% endif %}
+    &mdash; &pound;<span class="ocshop-total">{{ basketTotal }}</span>
     &nbsp;<span class="caret"></span>
   </button>
   <div class="dropdown-menu" role="menu">
