@@ -14,6 +14,10 @@ totalLabelClass = "pull-right"
 ==
 <h1>Your Shopping Basket</h1>
 
+{% flash %}
+    <div class="alert alert-{{ type }}">{{ message }}</div>
+{% endflash %}
+
 {% component 'shopBasket' %}
 
 <button type="submit" class="btn btn-primary"
