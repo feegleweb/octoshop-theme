@@ -14,7 +14,10 @@
           <a href="{{ 'basket'|page }}" class="btn  btn-block btn-default pull-left">View Basket</a>
         </div>
         <div class="col-xs-6">
-          <a href="{{ 'payment'|page }}" class="btn  btn-block btn-primary pull-right">Checkout</a>
+          <button type="submit" class="btn btn-block btn-primary pull-right"
+                  data-request="miniBasket::onCheckout">
+            Checkout
+          </button>
         </div>
       </div>
     </div>
