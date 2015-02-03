@@ -10,7 +10,7 @@
     </thead>
     <tbody>
         {% for item in basketItems %}
-            {% partial __SELF__~'::item' item=item %}
+            {% partial __SELF__~'::_item' item=item %}
         {% endfor %}
     </tbody>
 </table>

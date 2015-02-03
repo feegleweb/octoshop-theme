@@ -9,4 +9,78 @@ mainImageSize = "556"
 subImageSize = "116"
 
 ==
-{% component 'shopProduct' %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="row">
+            {% for image in product.images %}
+            {% if image.sort_order == '1' %}
+                {% set imageContainerClass = 'col-md-12' %}
+                {% set imageSize = mainImageSize %}
+            {% else %}
+                {% set imageContainerClass = 'col-md-3' %}
+                {% set imageSize = subImageSize %}
+            {% endif %}
+
+            <div class="{{ imageContainerClass }}">
+                <a href="{{ image.getPath() }}" class="thumbnail">
+                    <img class="img-rounded" alt="{{ product.title }}"
+                         src="{{ product.getSquareThumb(imageSize, image) }}"
+                    />
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-md-6">
+
+        <h2>{{ product.title }}</h2>
+
+        {{ product.description|raw }}
+
+        <div class="row">
+            <div class="col-md-7">
+                <p><strong>Model:</strong> {{ product.model }}</p>
+            </div>
+        </div>
+
+        <form
+            data-request="{{ basketComponent }}::onAddProduct"
+            data-request-data="id: {{ product.id }}"
+            {% if basketContainer %}
+            data-request-update="'{{ basketPartial }}' : '{{ basketContainer }}'"
+            {% endif %}
+        >
+            <div class="row">
+                <div class="col-md-3">
+                    <p class="text-primary lead">
+                        <strong>&pound; {{ product.price }}</strong>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <label class="sr-only" for="qty">Quantity</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control"
+                            name="quantity" placeholder="Qty"
+                            min="1" max="9999" value="1"
+                            {% if product.outOfStock() %}disabled{% endif %}
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    {% if product.inStock() %}
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Add to Basket
+                        </button>
+                    {% else %}
+                        <button type="button" class="btn btn-danger btn-block" disabled>
+                            Out of Stock
+                        </button>
+                    {% endif %}
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

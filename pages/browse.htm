@@ -26,6 +26,12 @@ categoryPage = "browse"
         </div>
     </div>
     <div class="col-md-9">
-        {% component 'shopProducts' %}
+        <div class="row">
+            {% for product in products %}
+                <div class="col-xs-6 col-sm-4 col-lg-3">
+                    {% partial 'product_small' product=product %}
+                </div>
+            {% endfor %}
+        </div>
     </div>
 </div>

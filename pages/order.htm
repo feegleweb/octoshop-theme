@@ -18,4 +18,13 @@ idParam = ":order_id"
     </div>
 {% endflash %}
 
-{% component 'shopOrder' %}
+<div class="row">
+    <div class="col-sm-6">
+        {% partial __SELF__~'::_address' type='billing' %}
+    </div>
+    <div class="col-sm-6">
+        {% partial __SELF__~'::_address' type='shipping' %}
+    </div>
+</div>
+
+{% partial 'order_items' %}
