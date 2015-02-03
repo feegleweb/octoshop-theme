@@ -12,9 +12,4 @@ productPage = "product"
     <div class="alert alert-{{ type }}">{{ message }}</div>
 {% endflash %}
 
-{% component 'shopBasket' %}
-
-<button type="submit" class="btn btn-primary"
-        data-request="shopBasket::onCheckout">
-    Proceed to Checkout
-</button>
+{% partial 'basket_items' checkoutText='Proceed to Checkout' %}

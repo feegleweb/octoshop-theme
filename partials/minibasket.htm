@@ -8,18 +8,7 @@
   </button>
   <div class="dropdown-menu" role="menu">
     <div class="container">
-      {% component "miniBasket" %}
-      <div class="row">
-        <div class="col-xs-6">
-          <a href="{{ 'basket'|page }}" class="btn  btn-block btn-default pull-left">View Basket</a>
-        </div>
-        <div class="col-xs-6">
-          <button type="submit" class="btn btn-block btn-primary pull-right"
-                  data-request="miniBasket::onCheckout">
-            Checkout
-          </button>
-        </div>
-      </div>
+      {% partial 'basket_items' condense=true checkoutText='Checkout' basketBtn=true %}
     </div>
   </div>
 </div>
