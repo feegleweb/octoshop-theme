@@ -5,37 +5,22 @@ layout = "default"
 [shopProducts]
 idParam = ":slug"
 basketContainer = "#minibasket"
-addButtonText = "Add to Basket"
-rowClass = "row"
-imageClass = "img-rounded"
-mainImageContainerClass = "thumbnail"
-detailContainerClass = "caption"
-priceContainerClass = "col-xs-4"
-addButtonClass = "btn btn-sm btn-primary pull-right"
-addButtonContainerClass = "col-xs-8"
 categoryFilter = ":slug"
 productPage = "product"
-productColumnClass = "col-xs-6 col-sm-4 col-lg-3"
 
 [shopCategories]
 categoryPage = "browse"
-showItemCount = "true"
-itemCountClass = "badge"
-listClass = "list-group"
-listItemClass = "list-group-item"
 ==
 <div class="row">
     <div class="col-md-3">
-        <div class="{{ listClass }}">
+        <div class="list-group">
             {% for cat in categories %}
-            <a class="{{ listItemClass }}{% if cat.id == category.id %} active{% endif %}" href="{{ cat.url }}">
+            <a class="list-group-item{% if cat.id == category.id %} active{% endif %}" href="{{ cat.url }}">
                 {{ cat.title }}
 
-                {% if showItemCount %}
-                <span class="{{ itemCountClass }}">
+                <span class="badge">
                     {{ cat.products.count }}
                 </span>
-                {% endif %}
             </a>
             {% endfor %}
         </div>
