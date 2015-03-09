@@ -1,7 +1,8 @@
 {
-    "name": "dshoreman/octoshop-theme",
+    "name": "feegleweb/octoshop-theme",
     "type": "october-theme",
     "description": "Sample shop theme for use with the Shop plugin",
+    "homepage": "http://dsdev.io/",
     "keywords": ["october", "cms", "shop", "octoshop", "ecommerce", "store", "theme"],
     "authors": [
         {
