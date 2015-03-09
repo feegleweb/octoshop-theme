@@ -37,11 +37,13 @@ subImageSize = "116"
 
         {{ product.description|raw }}
 
+        {% if product.model %}
         <div class="row">
             <div class="col-md-7">
                 <p><strong>Model:</strong> {{ product.model }}</p>
             </div>
         </div>
+        {% endif %}
 
         <form
             data-request="{{ basketComponent }}::onAddProduct"
