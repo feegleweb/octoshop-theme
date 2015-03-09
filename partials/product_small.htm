@@ -27,8 +27,8 @@
                     <button type="submit" class="btn btn-sm btn-primary pull-right"
                         data-request="{{ basketComponent }}::onAddProduct"
                         data-request-data="id: {{ product.id }}, quantity: 1"
-                        {% if basketContainer %}
-                            data-request-update="'{{ basketPartial }}' : '{{ basketContainer }}'  "
+                        {% if basket %}
+                            data-request-update="'{{ basketPartial }}' : '{{ basket }}'  "
                         {% endif %}
                     >
                         Add to Basket

@@ -3,8 +3,8 @@ url = "/product/:slug"
 layout = "default"
 
 [shopProduct]
-idParam = ":slug"
-basketContainer = "#minibasket"
+slug = "{{ :slug }}"
+basket = "#minibasket"
 mainImageSize = "556"
 subImageSize = "116"
 
@@ -48,8 +48,8 @@ subImageSize = "116"
         <form
             data-request="{{ basketComponent }}::onAddProduct"
             data-request-data="id: {{ product.id }}"
-            {% if basketContainer %}
-            data-request-update="'{{ basketPartial }}' : '{{ basketContainer }}'"
+            {% if basket %}
+            data-request-update="'{{ basketPartial }}' : '{{ basket }}'"
             {% endif %}
         >
             <div class="row">
