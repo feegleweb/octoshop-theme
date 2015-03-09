@@ -7,7 +7,7 @@
         {
             "name": "Dave Shoreman",
             "email": "code@dsdev.io"
-        },
+        }
     ],
     "require": {
         "php": ">=5.4"
