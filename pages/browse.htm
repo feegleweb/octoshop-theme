@@ -25,6 +25,14 @@ categoryPage = "browse"
         </div>
     </div>
     <div class="col-md-9">
+        {% if category %}
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>{{ category.name }}</h1>
+                <p>{{ category.description|raw }}</p>
+            </div>
+        </div>
+        {% endif %}
         <div class="row">
             {% for product in products %}
                 <div class="col-xs-6 col-sm-4 col-lg-3">
