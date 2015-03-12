@@ -25,3 +25,12 @@ body {
 .alert-error .alert-link {
     color: #843534;
 }
+
+/**
+ * Product list styles
+ */
+.product-layout.product-grid-sm {}
+.product-layout.product-grid-lg {}
+.product-layout.product-list a.thumbnail {
+    margin-right: 15px;
+}
