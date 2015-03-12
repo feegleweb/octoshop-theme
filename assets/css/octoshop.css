@@ -58,6 +58,12 @@ body {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+.product-layout.product-layout-grid .caption {
+    padding: 0;
+}
+.product-layout.product-layout-grid h4.price {
+    margin: 5px 0 0;
+}
 
 .product-layout.product-layout-list a.thumbnail {
     margin-right: 15px;
