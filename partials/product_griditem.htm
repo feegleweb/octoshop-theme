@@ -1,8 +1,8 @@
 <div class="thumbnail">
 
     {% if product.images|length == 0 %}
-        <img class="img-rounded" alt="{{ product.title }}"
-             src="http://placehold.it/179/179" />
+        <img alt="{{ product.title }}"
+             src="http://placehold.it/252/252" />
     {% else %}
         <!-- HERE BE DRAGONS! -------------------------------------------------->
         <!-- This is a dirty hack. There is really only one image, but with   -->
@@ -10,8 +10,8 @@
         <!-- a "Call to member function on non-object" error, despite it      -->
         <!-- being passed a File object.          Yeah... Don't ask. No idea. -->
         {% for image in product.images %}
-        <img class="img-rounded" alt="{{ product.title }}"
-             src="{{ product.getSquareThumb(179, image) }}" />
+        <img alt="{{ product.title }}"
+             src="{{ product.getSquareThumb(252, image) }}" />
         {% endfor %}
     {% endif %}
 
