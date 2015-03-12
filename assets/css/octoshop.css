@@ -29,8 +29,10 @@ body {
 /**
  * Product list styles
  */
-.product-layout.product-grid-sm {}
-.product-layout.product-grid-lg {}
-.product-layout.product-list a.thumbnail {
+.product-layout.product-layout-thumb {}
+
+.product-layout.product-layout-grid {}
+
+.product-layout.product-layout-list a.thumbnail {
     margin-right: 15px;
 }

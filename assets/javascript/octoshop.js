@@ -8,8 +8,8 @@
         console.log("Setting product style to "+style);
 
         $('.product-layout').hide();
-        $('.product-layout.product-'+style).show();
+        $('.product-layout.product-layout-'+style).show();
     });
-    $('.product-toolbar .btn[data-style="grid-sm"]').click();
+    $('.product-toolbar .btn[data-style="thumb"]').click();
 
 })();
