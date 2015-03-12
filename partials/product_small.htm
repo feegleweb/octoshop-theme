@@ -1,4 +1,5 @@
 <div class="thumbnail">
+
     {% if product.images|length == 0 %}
         <img class="img-rounded" alt="{{ product.title }}"
              src="http://placehold.it/179/179" />
@@ -20,7 +21,7 @@
         </a>
         <div class="row">
             <div class="col-xs-4">
-                <h5>&pound;{{ product.price }}</h5>
+                <h4>&pound;{{ product.price }}</h4>
             </div>
             <div class="col-xs-8">
                 {% if product.inStock() %}
