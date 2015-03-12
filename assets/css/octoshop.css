@@ -52,7 +52,12 @@ body {
     margin-top: 0;
 }
 
-.product-layout.product-layout-grid {}
+.product-layout.product-layout-grid a h4 {
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 .product-layout.product-layout-list a.thumbnail {
     margin-right: 15px;
