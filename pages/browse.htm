@@ -1,0 +1,38 @@
+title = "Browse Products"
+url = "/browse/:slug?"
+layout = "default"
+
+[shopProductList]
+category = "{{ :slug }}"
+basket = "#minibasket"
+productPage = "product"
+
+[shopCategories]
+categoryPage = "browse"
+==
+<div class="row">
+    <div class="col-md-3">
+        <div class="list-group">
+            {% for cat in categories %}
+            <a class="list-group-item{% if cat.id == category.id %} active{% endif %}" href="{{ cat.url }}">
+                {{ cat.name }}
+
+                <span class="badge">
+                    {{ cat.productCount }}
+                </span>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-md-9">
+        {% if category %}
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>{{ category.name }}</h1>
+                <p>{{ category.description|raw }}</p>
+            </div>
+        </div>
+        {% endif %}
+        {% partial 'product_grid' products=products %}
+    </div>
+</div>

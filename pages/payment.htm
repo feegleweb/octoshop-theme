@@ -1,0 +1,60 @@
+title = "Payment"
+url = "/payment"
+layout = "default"
+
+[shopBasket mainBasket]
+paymentPage = "checkout/payment"
+productPage = "product"
+==
+<?php
+
+use Feegleweb\Octoshop\Models\Settings;
+
+function onStart()
+{
+    $this['key'] = Settings::get('stripe_active_keys') == 'live'
+                 ? Settings::get('stripe_live_pub_key')
+                 : Settings::get('stripe_test_pub_key');
+}
+?>
+==
+<h2>Checkout</h2>
+<p class="lead">
+	Please double-check everything on this page to make sure the information
+	is correct. When you are absolutely sure it is, go ahead and <em>Pay with Card</em> to finalise your order.
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col-xs-1">&nbsp;</th>
+            <th class="col-xs-8">Product</th>
+            <th class="col-xs-1">Qty.</th>
+            <th class="col-xs-1">Price</th>
+            <th class="col-xs-1">Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in basketItems %}
+            {% partial __SELF__~'::_item' item=item %}
+        {% endfor %}
+        <tr>
+            <td colspan="4"><span class="pull-right">Total:</span></td>
+            <td>&pound;<span class="ocshop-total">{{ basketTotal }}</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="row pull-right">
+    <form action="/shop/order/payment/process" method="post">
+        <script class="stripe-button"
+                src="https://checkout.stripe.com/checkout.js"
+                data-key="{{ key }}"
+                data-name="Octoshop Demo"
+                data-amount="{{ basketTotal * 100}}"
+                data-currency="gbp"
+                data-billing-address="true"
+                data-shipping-address="true"
+        ></script>
+    </form>
+</div>

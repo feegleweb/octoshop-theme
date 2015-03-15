@@ -1,0 +1,70 @@
+body {
+  padding-top: 70px;
+}
+
+.navbar-brand img {
+    margin-top: -5px;
+}
+
+#minibasket .container {
+    width: 470px;
+}
+
+/**
+ * Duplicate Bootstrap's alert-danger class because
+ * October uses error, not danger.
+ */
+.alert.alert-error {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.alert-error hr {
+    border-top-color: #e4b9c0;
+}
+.alert-error .alert-link {
+    color: #843534;
+}
+
+/**
+ * Product list styles
+ */
+.product-layout.product-layout-thumb .overlay {
+    background: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    color: #fff;
+    height: 179px;
+    margin-top: -179px;
+    position: relative;
+    opacity: 0;
+}
+.product-layout.product-layout-thumb .overlay:hover {
+    opacity: 1;
+}
+.product-layout.product-layout-thumb .overlay a {
+    color: #fff;
+    display: block;
+    font-size: 14px;
+    height: 93px;
+    margin-top: 0;
+}
+
+.product-layout.product-layout-grid a h4 {
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.product-layout.product-layout-grid .caption {
+    padding: 0;
+}
+.product-layout.product-layout-grid h4.price {
+    margin: 5px 0 0;
+}
+
+.product-layout.product-layout-list a.thumbnail {
+    margin-right: 15px;
+}

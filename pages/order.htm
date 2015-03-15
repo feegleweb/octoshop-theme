@@ -1,0 +1,30 @@
+title = "Your Order"
+url = "/order/:order_id|^[0-9]+$"
+layout = "default"
+hidden = "0"
+
+[shopOrder]
+id = "{{ :order_id }}"
+==
+<h1>Order #{{ order.id }} for {{ order.email }}</h1>
+
+{% flash %}
+    <div class="alert alert-{{ type }} alert-dismissable" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Close</span>
+        </button>
+        {{ message }}
+    </div>
+{% endflash %}
+
+<div class="row">
+    <div class="col-sm-6">
+        {% partial __SELF__~'::_address' type='billing' %}
+    </div>
+    <div class="col-sm-6">
+        {% partial __SELF__~'::_address' type='shipping' %}
+    </div>
+</div>
+
+{% partial 'order_items' %}

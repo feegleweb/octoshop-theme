@@ -1,0 +1,39 @@
+[shopBasket miniBasket]
+paymentPage = "payment"
+productPage = "product"
+basketComponent = "miniBasket"
+basketPartial = "minibasket"
+==
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="{{ 'assets/favicon.ico'|theme }}">
+
+        <title>Octoshop - {{ this.page.title }}</title>
+
+        <link href="{{ 'assets/css/bootstrap.min.css'|theme }}" rel="stylesheet">
+        <link href="{{ 'assets/css/octoshop.css'|theme }}" rel="stylesheet">
+        {% styles %}
+    </head>
+
+    <body>
+
+        {% partial "nav" %}
+
+        <div class="container">
+
+            {% page %}
+
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="{{ 'assets/javascript/bootstrap.min.js'|theme }}"></script>
+        {# IE10 viewport hack for Surface/desktop Windows 8 bug #}
+        <script src="{{ 'assets/javascript/ie10-viewport-bug-workaround.js'|theme }}"></script>
+        <script src="{{ 'assets/javascript/octoshop.js'|theme }}"></script>
+        {% framework %}
+    </body>
+</html>

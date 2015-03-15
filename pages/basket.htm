@@ -1,0 +1,15 @@
+title = "Basket"
+url = "/basket"
+layout = "default"
+
+[shopBasket]
+paymentPage = "payment"
+productPage = "product"
+==
+<h1>Your Shopping Basket</h1>
+
+{% flash %}
+    <div class="alert alert-{{ type }}">{{ message }}</div>
+{% endflash %}
+
+{% partial 'basket_items' checkoutText='Proceed to Checkout' %}

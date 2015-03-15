@@ -1,0 +1,25 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col-sm-9">Product</th>
+            <th class="col-sm-1">Price</th>
+            <th class="col-sm-1">Quantity</th>
+            <th class="col-sm-1">Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in order.items %}
+            {% partial __SELF__~'::_item' item=item %}
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">
+                <span class="pull-right">
+                    <strong>Total:</strong>
+                </span>
+            </td>
+            <td>&pound;{{ order.total }}</td>
+        </tr>
+    </tfoot>
+</table>
