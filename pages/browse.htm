@@ -15,7 +15,7 @@ categoryPage = "browse"
         <div class="list-group">
             {% for cat in categories %}
             <a class="list-group-item{% if cat.id == category.id %} active{% endif %}" href="{{ cat.url }}">
-                {{ cat.title }}
+                {{ cat.name }}
 
                 <span class="badge">
                     {{ cat.productCount }}
