@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-xs-12">
+        <a class="thumbnail pull-left">
+            <img alt="{{ product.title }}"
+                {% if product.images.count() %}
+                     src="{{ product.getSquareThumb(179, product.images.first) }}"
+                {% else %}
+                     src="http://placehold.it/179/179"
+                {% endif %}
+            />
+        </a>
+
+        <a href="{{ product.url }}">
+            <h4 title="{{ product.title }}">{{ product.title }}</h4>
+        </a>
+
+        {% if product.model %}
+        <p><strong>Model:</strong> {{ product.model }}<p>
+        {% endif %}
+
+        <h4>&pound;{{ product.price }}</h4>
+
+        {% if product.inStock() %}
+            <button type="submit" class="btn btn-sm btn-primary"
+                data-request="{{ basketComponent }}::onAddProduct"
+                data-request-data="id: {{ product.id }}, quantity: 1"
+                {% if basket %}
+                    data-request-update="'{{ basketPartial }}' : '{{ basket }}'  "
+                {% endif %}
+            >
+                Add to Basket
+            </button>
+        {% else %}
+            <button type="button" class="btn btn-sm btn-danger" disabled>
+                Out of Stock
+            </button>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="well well-sm">
+    <div class="row">
+        <div class="col-xs-12 col-md-2 col-md-offset-10">
+            <div class="btn-toolbar pull-right" role="toolbar">
+                <div class="product-toolbar btn-group" role="group" aria-label="">
+                    <button type="button" class="btn btn-sm btn-default" data-style="thumb">
+                        <i class="glyphicon glyphicon-th"></i>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-default" data-style="grid">
+                        <i class="glyphicon glyphicon-th-large"></i>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-default" data-style="list">
+                        <i class="glyphicon glyphicon-th-list"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    {% for product in products %}
+        <div class="col-xs-6 col-sm-4 col-lg-3 product-layout product-layout-thumb">
+            {% partial 'product_thumbitem' product=product %}
+        </div>
+        <div class="col-xs-12 col-sm-6 col-lg-4 product-layout product-layout-grid">
+            {% partial 'product_griditem' product=product %}
+        </div>
+        <div class="col-xs-6 col-sm-12 product-layout product-layout-list">
+            {% partial 'product_listitem' product=product %}
+        </div>
+    {% endfor %}
+</div>

@@ -2,10 +2,9 @@ title = "Browse Products"
 url = "/browse/:slug?"
 layout = "default"
 
-[shopProducts]
-idParam = ":slug"
-basketContainer = "#minibasket"
-categoryFilter = ":slug"
+[shopProductList]
+category = "{{ :slug }}"
+basket = "#minibasket"
 productPage = "product"
 
 [shopCategories]
@@ -16,22 +15,24 @@ categoryPage = "browse"
         <div class="list-group">
             {% for cat in categories %}
             <a class="list-group-item{% if cat.id == category.id %} active{% endif %}" href="{{ cat.url }}">
-                {{ cat.title }}
+                {{ cat.name }}
 
                 <span class="badge">
-                    {{ cat.products.count }}
+                    {{ cat.productCount }}
                 </span>
             </a>
             {% endfor %}
         </div>
     </div>
     <div class="col-md-9">
+        {% if category %}
         <div class="row">
-            {% for product in products %}
-                <div class="col-xs-6 col-sm-4 col-lg-3">
-                    {% partial 'product_small' product=product %}
-                </div>
-            {% endfor %}
+            <div class="col-xs-12">
+                <h1>{{ category.name }}</h1>
+                <p>{{ category.description|raw }}</p>
+            </div>
         </div>
+        {% endif %}
+        {% partial 'product_grid' products=products %}
     </div>
 </div>
