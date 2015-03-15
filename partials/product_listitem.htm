@@ -1,20 +1,13 @@
 <div class="row">
     <div class="col-xs-12">
         <a class="thumbnail pull-left">
-            {% if product.images|length == 0 %}
-                <img alt="{{ product.title }}"
-                     src="http://placehold.it/179/179" />
-            {% else %}
-                <!-- HERE BE DRAGONS! -------------------------------------------------->
-                <!-- This is a dirty hack. There is really only one image, but with   -->
-                <!-- $product->image = $product->images->first() in the model, we get -->
-                <!-- a "Call to member function on non-object" error, despite it      -->
-                <!-- being passed a File object.          Yeah... Don't ask. No idea. -->
-                {% for image in product.images %}
-                <img alt="{{ product.title }}"
-                     src="{{ product.getSquareThumb(179, image) }}" />
-                {% endfor %}
-            {% endif %}
+            <img alt="{{ product.title }}"
+                {% if product.images.count() %}
+                     src="{{ product.getSquareThumb(179, product.images.first) }}"
+                {% else %}
+                     src="http://placehold.it/179/179"
+                {% endif %}
+            />
         </a>
 
         <a href="{{ product.url }}">
