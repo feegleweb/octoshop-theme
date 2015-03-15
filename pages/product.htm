@@ -12,23 +12,26 @@ subImageSize = "116"
 <div class="row">
     <div class="col-md-6">
         <div class="row">
-            {% for image in product.images %}
-            {% if image.sort_order == '1' %}
-                {% set imageContainerClass = 'col-md-12' %}
-                {% set imageSize = mainImageSize %}
-            {% else %}
-                {% set imageContainerClass = 'col-md-3' %}
-                {% set imageSize = subImageSize %}
-            {% endif %}
-
-            <div class="{{ imageContainerClass }}">
-                <a href="{{ image.getPath() }}" class="thumbnail">
-                    <img class="img-rounded" alt="{{ product.title }}"
-                         src="{{ product.getSquareThumb(imageSize, image) }}"
+            {% if product.images.count %}
+            <div class="col-md-12">
+                <a href="{{ product.images.first.getPath() }}" class="thumbnail">
+                    <img alt="{{ product.title }}"
+                         src="{{ product.getSquareThumb(mainImageSize, product.images.first) }}"
                     />
                 </a>
             </div>
+
+            {% for image in product.images %}
+                <div class="col-md-3">
+                    <a href="{{ image.getPath() }}" class="thumbnail">
+                        <img alt="{{ product.title }}"
+                             src="{{ product.getSquareThumb(subImageSize, image) }}"
+                        />
+                    </a>
+                </div>
             {% endfor %}
+
+            {% endif %}
         </div>
     </div>
     <div class="col-md-6">
