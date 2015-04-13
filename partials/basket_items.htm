@@ -10,7 +10,7 @@
     </thead>
     <tbody>
         {% for item in basketItems %}
-            {% partial __SELF__~'::_item' item=item %}
+            {% partial 'miniBasket::_item' item=item %}
         {% endfor %}
     </tbody>
 </table>
@@ -27,7 +27,7 @@
     <div class="col-sm-{% if basketBtn %}6{% else %}12{% endif %}">
         <button type="submit"
                 class="btn btn-primary {% if basketBtn %}btn-block pull-right{% endif %}"
-                data-request="{% if basketBtn %}mini{% else %}shop{% endif %}Basket::onCheckout">
+                data-request="{% if basketBtn %}mini{% else %}shop{% endif %}Basket::onGoToCheckout">
             {{ checkoutText }}
         </button>
     </div>

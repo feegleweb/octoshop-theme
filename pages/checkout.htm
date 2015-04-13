@@ -1,0 +1,101 @@
+title = "Checkout"
+url = "/checkout"
+layout = "default"
+hidden = "0"
+
+[shopBasket mainBasket]
+checkoutPage = "checkout"
+productPage = "product"
+basketComponent = "shopBasket"
+basketPartial = "shopBasket::default"
+recipientName = "Admin Person"
+recipientEmail = "admin@mysite.com"
+==
+<h2>Checkout</h2>
+<p class="lead">
+	Please double-check everything on this page to make sure the information
+	is correct. When you are absolutely sure it is, go ahead and <em>Order It!</em> to finalise your order.
+</p>
+
+<div class="row">
+    <div class="col-md-8">
+        <form
+            class="form form-horizontal"
+            data-request="onCheckout"
+            data-request-redirect="/browse"
+        >
+            <fieldset>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="first_name">First Name</label>  
+                    <div class="col-md-8">
+                        <input id="first_name" name="first_name" type="text" placeholder="Jill" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="last_name">Last Name</label>  
+                    <div class="col-md-8">
+                        <input id="last_name" name="last_name" type="text" placeholder="Smith" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="email">Email</label>
+                    <div class="col-md-8">
+                        <input id="email" name="email" type="email" placeholder="jill.smith@email.com" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="address">Address</label>  
+                    <div class="col-md-8">
+                        <input id="address" name="address" type="text" placeholder="42 Rain Lane" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="town">Town</label>  
+                    <div class="col-md-8">
+                        <input id="town" name="town" type="text" placeholder="Autumnville" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="county">County</label>  
+                    <div class="col-md-8">
+                        <input id="county" name="county" type="text" placeholder="Leafton" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="">Post Code</label>  
+                    <div class="col-md-8">
+                        <input id="" name="" type="text" placeholder="AU12 3LT" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-4">
+                        <button id="submit" name="submit" class="btn btn-primary">Order It!</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="col-xs-1">&nbsp;</th>
+                    <th class="col-xs-8">Product</th>
+                    <th class="col-xs-1">Qty.</th>
+                    <th class="col-xs-1">Price</th>
+                    <th class="col-xs-1">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in basketItems %}
+                    {% partial __SELF__~'::_item' item=item %}
+                {% endfor %}
+                <tr>
+                    <td colspan="4"><span class="pull-right">Total:</span></td>
+                    <td>&pound;<span class="ocshop-total">{{ basketTotal }}</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
